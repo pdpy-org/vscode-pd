@@ -1,0 +1,53 @@
+{
+	"name": "vscode-pd",
+	"displayName": "vscode-pd",
+	"description": "Language support for the pd language",
+	"version": "0.0.1",
+	"publisher": "fdch",
+	"homepage": "https://github.com/fdch/vscode-pd/blob/master/README.md",
+	"license": "MIT",
+	"engines": {
+		"vscode": "^1.32.0"
+	},
+	"main": "extension.js",
+	"categories": [
+		"Programming Languages"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/fdch/vscode-pd"
+	},
+	"activationEvents": [
+		"onLanguage:pd",
+		"onCommand:pd.execInTerminal",
+		"onCommand:pd.killTerminal"
+	],
+	"icon": "icon.png",
+	"contributes": {
+		"languages": [
+			{
+				"id": "pd",
+				"aliases": [
+					"pd",
+					"pd"
+				],
+				"extensions": [
+					".pd"
+				],
+				"configuration": "./language-configuration.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "pd",
+				"scopeName": "source.pd",
+				"path": "./syntaxes/pd.tmLanguage.json"
+			}
+		]
+	},
+	"devDependencies": {
+		"@types/node": "^7.0.43",
+		"eslint": "^4.11.0",
+		"vscode": "^1.1.6"
+	}
+}

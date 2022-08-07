@@ -1,0 +1,60 @@
+{
+  "scopeName": "source.pd",
+  "fileTypes": ["pd"],
+  "firstLineMatch": "^#N.*;$",
+  "name": "pd",
+  "patterns": [
+    {
+      "name": "markup.bold.pd",
+      "begin": "^#N",
+      "end": ";"
+    },
+    {
+      "name": "markup.bold.pd",
+      "contentName": "constant.numeric.pd",
+      "begin": "^#A",
+      "end": ";"
+    },
+    {
+      "name": "keyword.operator.pd",
+      "begin": "^#X",
+      "end": ";",
+      "patterns": [
+        {
+          "name": "constant.numeric.pd",
+          "match": "\\b(0x[0-9a-fA-F]+|[0-9]+(\\.[0-9]+)?)\\b"
+        }, {
+          "name": "markdown.italic.pd",
+          "match": "\\bscalar\\b[\\w]+\\b[\\d\\s]+\\b"
+        }, {
+          "name": "variable.parameter.pd",
+          "match": "\\\\\\$\\d+\\b"
+        }, {
+          "name":"keyword.control.pd",
+          "contentName": "comment.block.pd",
+          "begin": "\\btext\\b[\\d\\s]+\\b\\s",
+          "end": ";",
+          "patterns": [
+            {
+              "name": "constant.character.escape.pd",
+              "match": "\\\\(.)"
+            }
+          ]
+        }, {
+          "name":"keyword.control.pd",
+          "contentName":"constant.language.pd",
+          "begin": "\\b(obj|msg)\\b[\\d\\s]+\\b",
+          "end": "\\s"
+        }, {
+          "name":"keyword.control.pd",
+          "contentName":"constant.language.pd",
+          "begin": "\\b(array|floatatom|symbolatom|listbox|connect|declare|canvas|restore|coords)\\b",
+          "end":"\\s"
+        }, {
+          "name": "markdown.bold.pd",
+          "match": "\\b(\\\\,|\\\\;)\\b"
+        }
+      ]
+    }
+  ]
+}
